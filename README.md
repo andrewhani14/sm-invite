@@ -214,3 +214,22 @@ vercel --prod
 - Open deployed URL and submit an RSVP
 - Check `/admin` login and guest list load
 - Confirm Supabase table receives new rows
+
+### Fix for `/admin` 404 on Vercel
+
+This app uses client-side routing logic (path check in React). On refresh or direct visit to `/admin`, Vercel can return `404` unless routes are rewritten to `index.html`.
+
+This repo includes `vercel.json`:
+
+```json
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+```
+
+If you deployed before adding this file, redeploy the project and `/admin` will work.
