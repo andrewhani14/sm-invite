@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import { HeroSection } from './components/sections/HeroSection'
 import { EventDetailsSection } from './components/sections/EventDetailsSection'
 import { CountdownSection } from './components/sections/CountdownSection'
@@ -37,10 +38,20 @@ function App() {
 
   if (isAdminView) {
     if (!isAdminAuthenticated) {
-      return <AdminLoginGate onUnlock={() => setIsAdminAuthenticated(true)} />
+      return (
+        <>
+          <AdminLoginGate onUnlock={() => setIsAdminAuthenticated(true)} />
+          <Analytics />
+        </>
+      )
     }
 
-    return <AdminPanel />
+    return (
+      <>
+        <AdminPanel />
+        <Analytics />
+      </>
+    )
   }
 
   return (
@@ -51,6 +62,7 @@ function App() {
       <RSVPSection />
       {hasGalleryImages ? <GallerySection images={eventData.galleryImages} /> : null}
       {hasFaqItems ? <FAQSection faq={eventData.faq} /> : null}
+      <Analytics />
     </div>
   )
 }
