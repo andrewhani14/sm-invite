@@ -10,6 +10,7 @@ A polished, mobile-first engagement RSVP website with:
 - Supabase integration to persist RSVPs
 - Admin panel to view RSVPs and export CSV
 - Simple login gate for admin route (`/admin`)
+- Event settings loaded from Supabase (`event_settings` table)
 
 ## Tech Stack
 
@@ -77,6 +78,23 @@ create table if not exists public.rsvps (
   notes text
 );
 
+create table if not exists public.event_settings (
+  id int primary key default 1 check (id = 1),
+  couple_names text not null,
+  engagement_title text not null,
+  event_date text not null,
+  event_time text not null,
+  venue_name text not null,
+  address text not null,
+  map_link text not null,
+  dress_code text not null,
+  hero_tagline text not null,
+  countdown_target text not null,
+  gallery_images jsonb not null default '[]'::jsonb,
+  faq jsonb not null default '[]'::jsonb,
+  updated_at timestamptz not null default now()
+);
+
 alter table public.rsvps enable row level security;
 
 drop policy if exists "Allow anonymous inserts to rsvps" on public.rsvps;
@@ -95,6 +113,19 @@ on public.rsvps
 for select
 to public
 using (true);
+
+create policy "Allow public read event settings"
+on public.event_settings
+for select
+to public
+using (true);
+
+create policy "Allow public update event settings"
+on public.event_settings
+for all
+to public
+using (true)
+with check (true);
 ```
 
 > Quick test alternative: disable RLS with `alter table public.rsvps disable row level security;`
@@ -158,6 +189,7 @@ Update this one file to re-theme content quickly.
 - Enter the admin access code from `VITE_ADMIN_ACCESS_CODE`
 - Guest list auto-loads on open; use `Refresh List` any time
 - Click `Export CSV` to download `guest-list-YYYY-MM-DD.csv`
+- Use **Landing Page Settings** section to edit event content and save to Supabase
 
 If guest list does not load:
 

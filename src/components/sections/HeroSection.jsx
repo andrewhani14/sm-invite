@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { PrimaryButton } from '../ui/PrimaryButton'
-import { PremiumFloralBackground } from '../ui/PremiumFloralBackground'
 
 export function HeroSection({ eventData }) {
   const MotionButton = motion.button
@@ -8,11 +7,19 @@ export function HeroSection({ eventData }) {
   const [leftName = '', rightName = ''] = eventData.coupleNames.split('&').map((name) => name.trim())
   const leftInitial = leftName[0] ?? ''
   const rightInitial = rightName[0] ?? ''
-  const namesDisplay = `${leftName} & ${rightName}`.toUpperCase()
 
   return (
-    <section className="relative overflow-hidden pb-16 pt-10 sm:pb-24 sm:pt-14">
-      <PremiumFloralBackground />
+    <section className="relative flex min-h-screen items-center overflow-hidden py-10 sm:py-14">
+      <div className="absolute inset-0">
+        <img
+          src="/landing-hero-bg.png"
+          alt=""
+          aria-hidden="true"
+          className="h-full w-full object-fill object-center"
+        />
+      </div>
+      <div className="absolute inset-0 bg-white/58 sm:bg-white/52" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.18)_0%,rgba(255,255,255,0.46)_55%,rgba(255,255,255,0.58)_100%)]" />
       <div className="section-shell relative z-10">
         <div className="mx-auto max-w-4xl py-6 text-center sm:py-10">
           <motion.p

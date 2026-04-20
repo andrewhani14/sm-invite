@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { HeroSection } from './components/sections/HeroSection'
 import { EventDetailsSection } from './components/sections/EventDetailsSection'
 import { CountdownSection } from './components/sections/CountdownSection'
@@ -7,16 +7,33 @@ import { GallerySection } from './components/sections/GallerySection'
 import { FAQSection } from './components/sections/FAQSection'
 import { AdminPanel } from './components/sections/AdminPanel'
 import { AdminLoginGate, hasAdminSession } from './components/sections/AdminLoginGate'
-import { eventData } from './config/eventData'
+import { defaultEventData } from './config/eventData'
+import { fetchEventSettings } from './lib/eventSettings'
 
 function App() {
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(() =>
     hasAdminSession(),
   )
+  const [eventData, setEventData] = useState(defaultEventData)
   const isAdminView = useMemo(
     () => window.location.pathname.replace(/\/$/, '') === '/admin',
     [],
   )
+  const hasGalleryImages = Array.isArray(eventData.galleryImages) && eventData.galleryImages.length > 0
+  const hasFaqItems = Array.isArray(eventData.faq) && eventData.faq.length > 0
+
+  useEffect(() => {
+    const loadEventSettings = async () => {
+      try {
+        const settings = await fetchEventSettings()
+        setEventData(settings)
+      } catch (error) {
+        console.warn('Could not load event settings from Supabase. Using local defaults.', error)
+      }
+    }
+
+    loadEventSettings()
+  }, [])
 
   if (isAdminView) {
     if (!isAdminAuthenticated) {
@@ -32,8 +49,8 @@ function App() {
       <EventDetailsSection eventData={eventData} />
       <CountdownSection targetDate={eventData.countdownTarget} />
       <RSVPSection />
-      <GallerySection images={eventData.galleryImages} />
-      <FAQSection faq={eventData.faq} />
+      {hasGalleryImages ? <GallerySection images={eventData.galleryImages} /> : null}
+      {hasFaqItems ? <FAQSection faq={eventData.faq} /> : null}
     </div>
   )
 }

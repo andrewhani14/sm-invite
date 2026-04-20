@@ -1,15 +1,15 @@
-export const eventData = {
+export const defaultEventData = {
   coupleNames: 'Sandra & Mark',
   engagementTitle: 'We Are Getting Engaged',
   eventDate: 'Saturday, May 23, 2026',
-  eventTime: '2:00 PM onwards',
+  eventTime: '4:00 PM onwards',
   venueName: 'Smokery Katameya Heights',
   address: 'Katameya Heights, Cairo, Egypt',
   mapLink: 'https://maps.app.goo.gl/HZBVYKjERkU9NNDz6',
   dressCode: 'Elegant Semi-Formal',
   heroTagline:
     'Join us for an evening of love, laughter, and celebration as we begin this beautiful chapter together.',
-  countdownTarget: '2026-05-23T14:00:00',
+  countdownTarget: '2026-05-23T16:00:00',
   galleryImages: [
     {
       src: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80',
