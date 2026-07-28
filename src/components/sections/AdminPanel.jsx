@@ -340,7 +340,7 @@ export function AdminPanel() {
                 className={`mb-4 rounded-xl px-4 py-3 text-sm ${
                   settingsStatus === 'error'
                     ? 'border border-red-200 bg-red-50 text-red-700'
-                    : 'border border-emerald-200 bg-emerald-50 text-emerald-700'
+                    : 'border border-romance-200 bg-romance-50 text-romance-700'
                 }`}
               >
                 {settingsMessage}

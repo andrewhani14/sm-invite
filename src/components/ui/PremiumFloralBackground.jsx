@@ -5,11 +5,11 @@ const MotionGroup = motion.g
 const MotionDiv = motion.div
 
 const palette = {
-  line: 'rgba(132, 156, 125, 0.58)',
-  lineSoft: 'rgba(153, 175, 146, 0.52)',
-  leaf: 'rgba(92, 126, 99, 0.62)',
-  leafVein: 'rgba(143, 171, 137, 0.54)',
-  leafFill: 'rgba(182, 206, 176, 0.14)',
+  line: 'rgba(110, 79, 53, 0.58)',
+  lineSoft: 'rgba(184, 149, 120, 0.52)',
+  leaf: 'rgba(110, 79, 53, 0.62)',
+  leafVein: 'rgba(154, 117, 89, 0.54)',
+  leafFill: 'rgba(212, 187, 168, 0.14)',
 }
 
 function LeafMark() {

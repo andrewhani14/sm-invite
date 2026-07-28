@@ -5,16 +5,16 @@ export default {
     extend: {
       colors: {
         romance: {
-          50: '#f7fbf8',
-          100: '#edf6ef',
-          200: '#d8ebdd',
-          300: '#bdddc7',
-          400: '#98c8aa',
-          500: '#74b08a',
-          600: '#4f916b',
-          700: '#3d7557',
-          800: '#2f5c45',
-          900: '#1f3f30',
+          50: '#faf7f4',
+          100: '#f2ebe4',
+          200: '#e5d6c9',
+          300: '#d4bba8',
+          400: '#b89578',
+          500: '#9a7559',
+          600: '#806244',
+          700: '#6E4F35',
+          800: '#583f2a',
+          900: '#3d2c1d',
         },
       },
       fontFamily: {
@@ -23,11 +23,11 @@ export default {
         script: ['"Allura"', 'cursive'],
       },
       boxShadow: {
-        glow: '0 16px 40px rgba(69, 122, 93, 0.18)',
+        glow: '0 16px 40px rgba(110, 79, 53, 0.18)',
       },
       backgroundImage: {
         'hero-gradient':
-          'radial-gradient(circle at top right, rgba(237, 246, 239, 0.9), rgba(247, 251, 248, 0.96) 35%, rgba(255, 255, 255, 1) 75%)',
+          'radial-gradient(circle at top right, rgba(250, 247, 244, 0.9), rgba(252, 249, 246, 0.96) 35%, rgba(255, 255, 255, 1) 75%)',
       },
     },
   },
