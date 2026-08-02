@@ -1,10 +1,10 @@
 export const defaultEventData = {
-  coupleNames: 'Sandra & Mark',
+  coupleNames: 'Raro & Mickey',
   engagementTitle: 'We Are Getting Engaged',
-  eventDate: 'Saturday, May 23, 2026',
+  eventDate: 'Saturday, August 29, 2026',
   eventTime: '4:00 PM onwards',
-  venueName: 'Smokery Katameya Heights',
-  address: 'Katameya Heights, Cairo, Egypt',
+  venueName: 'Lorraine Brasserie',
+  address: 'Heliopolis, Cairo, Egypt',
   mapLink: 'https://maps.app.goo.gl/HZBVYKjERkU9NNDz6',
   dressCode: 'Elegant Semi-Formal',
   heroTagline:

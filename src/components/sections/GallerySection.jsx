@@ -10,7 +10,7 @@ export function GallerySection({ images }) {
           title="Our Story In Frames"
           description="A few glimpses from our journey that led us to this celebration."
         />
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid justify-items-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {images.map((image, index) => (
             <motion.figure
               key={image.src}
